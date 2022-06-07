@@ -61,11 +61,11 @@ func NewApp() (App, error) {
 	//router.Handler(http.MethodGet, "/swagger/*any", httpSwagger.WrapHandler)
 
 	pgConfig := postgresql.NewPgConfig(
-		os.Getenv("EDITOR"),
-		os.Getenv("EDITOR"),
-		os.Getenv("EDITOR"),
-		os.Getenv("EDITOR"),
-		os.Getenv("EDITOR"),
+		os.Getenv("DB_USER"),
+		os.Getenv("DB_PASSWORD"),
+		os.Getenv("DB_HOST"),
+		os.Getenv("DB_PORT"),
+		os.Getenv("DB_NAME"),
 	)
 
 	pgClient, err := postgresql.NewClient(context.Background(), 5, time.Second*5, pgConfig)
